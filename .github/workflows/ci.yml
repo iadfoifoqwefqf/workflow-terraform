@@ -28,11 +28,11 @@ jobs:
         with:
           name: terraform-output
           path: output.txt
-              - name: Commit and push output.txt to repo
+
+      - name: Commit and push output.txt to repo
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add output.txt
-          git commit -m "Add Terraform output"
+          git commit -m "Add Terraform output" || echo "No changes to commit"
           git push
-
